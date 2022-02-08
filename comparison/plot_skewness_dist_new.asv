@@ -1,0 +1,16 @@
+epos = load('Z:\Teams-MJ-data\epos.mat');
+for i = 1:npair
+
+    skewness_change(i) = post.stat{i}.skew - pre.stat{i}.skew;
+    tmplocs(i,1) = pre.stat{i}.med(1);
+    tmplocs(i,2) = pre.stat{i}.med(2);
+    tmplocplanes(i) = pre.stat{i}.iplane;
+
+end
+    tmplocs = double(tmplocs
+    locs = tmplocs.* repmat(epos.micronppixel/epos.mag(m),size(tmplocs(:,1),1)); 
+    rellocs = (locs - epos.epos(m,1:2)) .* repmat(epos.micronppixel/epos.mag(m),size(locs,1),1); 
+    locs(:,3) = (tmplocplanes * epos.micronpplane;
+    rellocs(:,3)=(tmplocplanes - epos.epos(m,3))*epos.micronpplane;
+    
+    dist = sqrt(rellocs(:,1).^2 + rellocs(:,2).^2+rellocs(:,3).^2);%3D
